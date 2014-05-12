@@ -1,10 +1,13 @@
-package model;
+package model.data;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import model.interfaces.BecomingFriend;
+import model.user.MyUser;
+import model.user.PrivateUser;
+import model.user.PublicUser;
 
 public class PublicData  extends UnicastRemoteObject implements BecomingFriend {
 	private static final long serialVersionUID = 1L;

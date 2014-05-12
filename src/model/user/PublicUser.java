@@ -1,4 +1,6 @@
-package model;
+package model.user;
+
+import model.data.PublicData;
 
 public class PublicUser {
 	protected PublicData publicData;

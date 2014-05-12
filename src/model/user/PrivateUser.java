@@ -1,4 +1,7 @@
-package model;
+package model.user;
+
+import model.data.PrivateData;
+import model.data.PublicData;
 
 public class PrivateUser extends PublicUser {
 	protected PrivateData privateData;

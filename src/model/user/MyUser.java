@@ -1,15 +1,24 @@
-package model;
+package model.user;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
+
+import model.Notification;
+import model.data.PrivateData;
+import model.data.PublicData;
 
 public class MyUser extends PrivateUser {
 	private static MyUser instance;
 	private List<PublicUser> friendsRequestISent;
 	private List<PublicUser> friendsRequestIReceived;
+	private List<Notification> notifications;
 
 	private MyUser() throws RemoteException {
 		super(new PublicData(), new PrivateData());
+		this.friendsRequestISent = new ArrayList<PublicUser>();
+		this.friendsRequestIReceived = new ArrayList<PublicUser>();
+		this.notifications = new ArrayList<Notification>();
 	}
 	
 	public static MyUser getInstance() {
@@ -17,8 +26,6 @@ public class MyUser extends PrivateUser {
 			try {
 				MyUser.instance = new MyUser();
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 		}
 		return MyUser.instance;
@@ -38,5 +45,13 @@ public class MyUser extends PrivateUser {
 
 	public void setFriendsRequestIReceived(List<PublicUser> friendsRequestIReceived) {
 		this.friendsRequestIReceived = friendsRequestIReceived;
+	}
+
+	public List<Notification> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<Notification> notifications) {
+		this.notifications = notifications;
 	}
 }
