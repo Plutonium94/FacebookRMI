@@ -114,9 +114,13 @@ public class MegaViewClass {
 				if(opt.equals("ACCEPT")) {
 					try {
 						iPrivateUser friend = (iPrivateUser) pUser.acceptRequest((iPublicUser)MyUser.getInstance().getThisPrivateUser().getThisPublicUser(), (iPrivateUser)MyUser.getInstance().getThisPrivateUser());
-						MyUser.getInstance().getFriendsRequestISent().remove(friend.getThisPublicUser());
-						MyUser.getInstance().getThisPrivateUser().getFriends().add(friend);
-						this.shortMessage("Vous avez accepté la demande de "+ friend.getThisPublicUser().getName() + "...");
+						if(friend!=null) {
+							MyUser.getInstance().getFriendsRequestISent().remove(friend.getThisPublicUser());
+							MyUser.getInstance().getThisPrivateUser().getFriends().add(friend);
+							this.shortMessage("Vous avez accepté la demande de "+ friend.getThisPublicUser().getName() + "...");
+						} else {
+							this.shortMessage("Il semblerait que ce programme ait un léger problème ;)");
+						}
 						this.basicMenu();
 					} catch (RemoteException e) {}
 				} else if(opt.equals("DENY")) {
