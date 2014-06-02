@@ -1,8 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Publication {
+public class Publication implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private String writer;
 	private String message;
 	private String date;
@@ -32,5 +35,8 @@ public class Publication {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public String toString() {
+		return writer + ", le " + date + " : " + message;
 	}
 }

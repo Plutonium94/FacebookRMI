@@ -1,17 +1,17 @@
 package model;
 
-import model.enums.ActionEnum;
+import model.enums.Action;
 import model.user.PrivateUser;
 
 public class Notification {
 	private PrivateUser privateUser;
-	private ActionEnum actionEnum;
+	private Action actionEnum;
 	private String notification;
-	
-	public Notification(PrivateUser privateUser, ActionEnum actionEnum) {
+
+	public Notification(PrivateUser privateUser, Action actionEnum) {
 		this.privateUser = privateUser;
 		this.actionEnum = actionEnum;
-		this.notification = this.privateUser.getPublicData().getName() + " " + this.actionEnum;
+		this.notification = this.privateUser.getThisPublicUser().getName() + " " + this.actionEnum;
 	}
 
 	public PrivateUser getPrivateUser() {
@@ -22,11 +22,11 @@ public class Notification {
 		this.privateUser = privateUser;
 	}
 
-	public ActionEnum getActionEnum() {
+	public Action getActionEnum() {
 		return actionEnum;
 	}
 
-	public void setActionEnum(ActionEnum actionEnum) {
+	public void setActionEnum(Action actionEnum) {
 		this.actionEnum = actionEnum;
 	}
 
@@ -37,5 +37,4 @@ public class Notification {
 	public void setNotification(String notification) {
 		this.notification = notification;
 	}
-	
 }

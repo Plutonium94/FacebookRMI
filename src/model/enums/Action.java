@@ -1,5 +1,5 @@
 package model.enums;
 
-public enum ActionEnum {
+public enum Action {
 	PUBLISHEDMESSAGE
 }
